@@ -17,7 +17,8 @@ export type TagOption = {
     | "media"
     | "dining"
     | "interest"
-    | "idea";
+    | "idea"
+    | "spark";
   label: string;
   icon: typeof CalendarClock;
   tone: string;
