@@ -57,11 +57,29 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        brand: {
+          DEFAULT: "hsl(var(--brand-primary))",
+          foreground: "hsl(var(--primary-foreground))",
+          soft: "hsl(var(--brand-primary-soft))",
+          deep: "hsl(var(--brand-deep))",
+          surface: "hsl(var(--brand-surface))",
+          "key-muted": "hsl(var(--brand-key-muted))",
+          sun: "hsl(var(--brand-sun))",
+        },
+      },
+      fontFamily: {
+        sans: ["Manrope", "Inter", "system-ui", "sans-serif"],
+        heading: ["Manrope", "Inter", "system-ui", "sans-serif"],
+        body: ["Inter", "system-ui", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      boxShadow: {
+        brand: "0 24px 60px -30px rgba(47, 180, 110, 0.55)",
+        soft: "0 14px 40px -20px rgba(21, 56, 96, 0.35)",
       },
       keyframes: {
         "accordion-down": {
@@ -80,12 +98,18 @@ export default {
             height: "0",
           },
         },
+        "pulse-subtle": {
+          "0%": { boxShadow: "0 0 0 0 rgba(47, 180, 110, 0.45)" },
+          "70%": { boxShadow: "0 0 0 18px rgba(47, 180, 110, 0)" },
+          "100%": { boxShadow: "0 0 0 0 rgba(47, 180, 110, 0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "pulse-subtle": "pulse-subtle 2.2s ease-out infinite",
       },
-    },
+    }
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config;
