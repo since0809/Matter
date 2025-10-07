@@ -1,3 +1,4 @@
+import type { LucideIcon } from "lucide-react";
 import {
   BookOpenCheck,
   CalendarClock,
@@ -20,7 +21,7 @@ export type TagOption = {
     | "idea"
     | "spark";
   label: string;
-  icon: typeof CalendarClock;
+  icon: LucideIcon;
   tone: string;
 };
 
