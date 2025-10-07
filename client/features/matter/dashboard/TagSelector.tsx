@@ -28,7 +28,7 @@ export const TagSelector = ({ selected, onSelect }: TagSelectorProps) => {
                 "flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br",
                 active
                   ? "from-brand-soft/90 via-brand-soft to-brand-soft/70 text-brand-deep"
-                  : `from-muted to-muted text-muted-foreground group-hover:from-brand-soft/50 group-hover:to-brand-soft/40`,
+                  : `from-muted to-muted text-muted-foreground group-hover:${tag.tone}`,
               )}
             >
               <tag.icon className="h-5 w-5" strokeWidth={2.1} />
