@@ -20,15 +20,16 @@ export const TagSelector = ({ selected, onSelect }: TagSelectorProps) => {
             className={cn(
               "group inline-flex flex-col items-center gap-2 rounded-3xl border",
               "border-transparent px-3 py-2 text-center transition-all duration-200",
-              active ? "bg-brand-soft/60" : "hover:bg-muted",
+              active ? "bg-brand-soft/60 shadow-brand" : "hover:bg-muted",
             )}
           >
             <span
               className={cn(
-                "flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br",
+                "flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br transition-all duration-200",
+                tag.tone,
                 active
-                  ? "from-brand-soft/90 via-brand-soft to-brand-soft/70 text-brand-deep"
-                  : `from-muted to-muted text-muted-foreground group-hover:${tag.tone}`,
+                  ? "text-brand-deep shadow-md shadow-brand-soft/70"
+                  : "text-muted-foreground/80 saturate-50 group-hover:saturate-100 group-hover:text-brand-deep",
               )}
             >
               <tag.icon className="h-5 w-5" strokeWidth={2.1} />
