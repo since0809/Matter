@@ -65,7 +65,7 @@ export const NoteEditor = ({
         onChange={(event) => onNoteChange(event.target.value)}
         placeholder="補充紀錄或心得..."
         rows={4}
-        className="mt-4 w-full resize-none rounded-3xl border border-brand-soft bg-white/90 px-4 py-3 text-base font-medium text-brand-deep shadow-inner shadow-brand-soft/40 outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
+        className="mt-4 w-full resize-none rounded-3xl border border-brand-soft bg-white/90 px-4 py-3 text-base font-medium text-brand-deep shadow-inner outline-none focus:border-brand focus:ring-2 focus:ring-brand/30"
       />
 
       {photos.length > 0 && (
