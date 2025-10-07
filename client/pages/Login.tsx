@@ -1,10 +1,10 @@
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { AuthProvider, useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 import { KeyStatus } from "@/features/matter/layout/KeyStatus";
 
 const formatAccountHint = (account: string) => {
@@ -16,7 +16,7 @@ const formatAccountHint = (account: string) => {
   return trimmed;
 };
 
-const LoginContent = () => {
+const LoginPage = () => {
   const navigate = useNavigate();
   const { login, isAuthenticated } = useAuth();
 
@@ -26,12 +26,13 @@ const LoginContent = () => {
 
   const accountHint = useMemo(() => formatAccountHint(account), [account]);
 
-  const handleSubmit = async (
-    event: FormEvent<HTMLFormElement>,
-    mode: "signup" | "login",
-  ) => {
-    event.preventDefault();
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/", { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
 
+  const performAuth = async (mode: "signup" | "login") => {
     if (!account.trim() || !password.trim()) {
       toast.error("請輸入完整的帳號與密碼");
       return;
@@ -39,7 +40,7 @@ const LoginContent = () => {
 
     try {
       setSubmitting(true);
-      await new Promise((resolve) => setTimeout(resolve, 450));
+      await new Promise((resolve) => setTimeout(resolve, 420));
       login({ account: account.trim(), password: password.trim() });
       toast.success(
         mode === "signup"
@@ -52,9 +53,10 @@ const LoginContent = () => {
     }
   };
 
-  if (isAuthenticated) {
-    navigate("/", { replace: true });
-  }
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    performAuth("login");
+  };
 
   return (
     <div className="min-h-screen w-full bg-transparent px-4 py-10 sm:py-16">
@@ -81,10 +83,7 @@ const LoginContent = () => {
             </span>
           </p>
 
-          <form
-            className="relative flex flex-col gap-5"
-            onSubmit={(event) => handleSubmit(event, "login")}
-          >
+          <form className="relative flex flex-col gap-5" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="account"
@@ -139,8 +138,8 @@ const LoginContent = () => {
                 type="button"
                 variant="outline"
                 disabled={submitting}
-                className="h-12 rounded-2xl border-2 border-brand text-base font-semibold tracking-[0.2em] text-brand shadow-none transition hover:bg-brand hover:text-white"
-                onClick={(event) => handleSubmit(event as unknown as FormEvent<HTMLFormElement>, "signup")}
+                className="h-12 rounded-2xl border-2 border-brand text-base font-semibold tracking-[0.2em] text-brand transition hover:bg-brand hover:text-white"
+                onClick={() => performAuth("signup")}
               >
                 Sign up
               </Button>
@@ -158,11 +157,5 @@ const LoginContent = () => {
     </div>
   );
 };
-
-const LoginPage = () => (
-  <AuthProvider>
-    <LoginContent />
-  </AuthProvider>
-);
 
 export default LoginPage;
