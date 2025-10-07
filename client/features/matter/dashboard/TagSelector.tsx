@@ -28,7 +28,7 @@ export const TagSelector = ({ selected, onSelect }: TagSelectorProps) => {
                 "flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br transition-all duration-200",
                 tag.tone,
                 active
-                  ? "text-brand-deep shadow-md shadow-brand-soft/70"
+                  ? "text-brand-deep shadow-brand"
                   : "text-muted-foreground/80 saturate-50 group-hover:saturate-100 group-hover:text-brand-deep",
               )}
             >
