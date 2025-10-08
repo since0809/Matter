@@ -34,7 +34,7 @@ const LoginPage = () => {
 
   const performAuth = async (mode: "signup" | "login") => {
     if (!account.trim() || !password.trim()) {
-      toast.error("請輸入完整的帳號���密碼");
+      toast.error("請輸入完整的帳號與密碼");
       return;
     }
 
@@ -79,7 +79,9 @@ const LoginPage = () => {
 
           <p className="relative text-lg font-semibold leading-7 text-brand-deep/90">
             <span className="tracking-[0.35em] uppercase text-brand-deep">
-              Hey guest, please sign up first!
+              Hey guest,
+              <br />
+              please sign up first!
             </span>
           </p>
 
@@ -111,7 +113,7 @@ const LoginPage = () => {
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="password"
-                className="text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground/80"
+                className="text-xs font-semibold uppercase tracking-[2px] text-muted-foreground/80"
               >
                 Password
               </label>
@@ -146,11 +148,15 @@ const LoginPage = () => {
             </div>
           </form>
 
-          <footer className="relative space-y-1 text-xs text-muted-foreground/80">
-            <p>
+          <footer className="relative space-y-1 text-center text-xs text-muted-foreground/80">
+            <p className="text-center">
               Matter · Product Requirement Document — Record what really matters.
             </p>
-            <p>© {new Date().getFullYear()} Matter Studio. All rights reserved.</p>
+            <div className="mt-2 space-y-1 text-center">
+              <p>©</p>
+              <p>2025</p>
+              <p>Matter Studio. All rights reserved.</p>
+            </div>
           </footer>
         </div>
       </div>
