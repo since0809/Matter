@@ -15,19 +15,16 @@ const fallbackTasks: PlannerTask[] = [
     id: 1,
     text: "與設計團隊對齊 10.2 更新內容",
     tagId: "event",
-    completed: false,
   },
   {
     id: 2,
     text: "撰寫 Inspire 文章草稿",
     tagId: "idea",
-    completed: false,
   },
   {
     id: 3,
     text: "閱讀《AI 時代的專注力》",
     tagId: "reading",
-    completed: false,
   },
 ];
 
@@ -69,14 +66,16 @@ const Index = () => {
 
   const handleTagSelect = (id: string) => {
     setActiveTag(id);
-    const firstIncomplete = tasks.find((task) => !task.completed);
-    if (firstIncomplete) {
+    const targetTask =
+      tasks.find((task) => !task.text.trim()) ?? tasks.at(-1) ?? tasks[0];
+
+    if (targetTask) {
       setTasks((prev) =>
         prev.map((task) =>
-          task.id === firstIncomplete.id ? { ...task, tagId: id } : task,
+          task.id === targetTask.id ? { ...task, tagId: id } : task,
         ),
       );
-      toast.success(`已為「${firstIncomplete.text || "新的任務"}」套用 ${
+      toast.success(`已為「${targetTask.text || "新的任務"}」套用 ${
         TAG_OPTIONS.find((option) => option.id === id)?.label ?? "標籤"
       } 標籤`);
     }
@@ -115,7 +114,6 @@ const Index = () => {
       id: Date.now(),
       text: "",
       tagId: activeTag,
-      completed: false,
     };
     setTasks((prev) => [...prev, newTask]);
   };
