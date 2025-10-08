@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { addDays, format, subDays } from "date-fns";
-import { ChevronLeft, Plus } from "lucide-react";
+import { ChevronLeft, ChevronRight, Plus } from "lucide-react";
 
 import { useAuth } from "@/context/AuthContext";
 import { NoteEditor, NotePhoto } from "@/features/matter/dashboard/NoteEditor";
@@ -161,8 +161,9 @@ const Index = () => {
             variant="ghost"
             className="h-10 rounded-full border border-brand-soft/80 bg-brand-soft/30 px-4 text-sm font-semibold tracking-[0.2em] text-brand-deep hover:bg-brand-soft"
             onClick={goToNextDay}
+            aria-label="下一天"
           >
-            Next
+            <ChevronRight className="h-5 w-5" strokeWidth={2.1} />
           </Button>
         </header>
 
