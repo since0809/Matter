@@ -67,7 +67,8 @@ const Index = () => {
   const handleTagSelect = (id: string) => {
     setActiveTag(id);
     const targetTask =
-      tasks.find((task) => !task.text.trim()) ?? tasks.at(-1) ?? tasks[0];
+      tasks.find((task) => !task.text.trim()) ??
+      (tasks.length > 0 ? tasks[tasks.length - 1] : undefined);
 
     if (targetTask) {
       setTasks((prev) =>
