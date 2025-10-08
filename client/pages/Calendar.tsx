@@ -169,7 +169,7 @@ const CalendarPage = () => {
         </div>
       </section>
 
-      <section className="rounded-3xl border border-border/60 bg-brand-primary-soft/40 p-5">
+      <section className="rounded-3xl border border-border/60 bg-brand-soft/40 p-5">
         <header className="flex items-center justify-between">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground/80">
