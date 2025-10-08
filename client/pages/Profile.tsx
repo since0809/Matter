@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { CalendarHeart, Gift, LogOut, Sparkle, Trophy, UserPlus } from "lucide-react";
+import { CalendarHeart, Gift, LogOut, Sparkles, Trophy, UserPlus } from "lucide-react";
 import { formatDistanceToNow } from "date-fns";
 
 import { Button } from "@/components/ui/button";
@@ -58,7 +58,7 @@ const ProfilePage = () => {
             <h3 className="text-lg font-semibold text-brand-deep">Collect Keys</h3>
           </div>
           <p className="text-sm text-muted-foreground/80">
-            完成每日任務可解鎖鑰匙。累積鑰匙兌換限量徽章與高光時刻展示牆。
+            完成每日任務���解鎖鑰匙。累積鑰匙兌換限量徽章與高光時刻展示牆。
           </p>
           <Button className="mt-auto rounded-2xl bg-brand text-sm font-semibold tracking-[0.2em] text-white shadow-brand">
             即將推出
