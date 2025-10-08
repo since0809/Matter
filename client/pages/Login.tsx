@@ -34,7 +34,7 @@ const LoginPage = () => {
 
   const performAuth = async (mode: "signup" | "login") => {
     if (!account.trim() || !password.trim()) {
-      toast.error("請輸入完整的帳號與密碼");
+      toast.error("請輸入完整的帳號���密碼");
       return;
     }
 
@@ -67,11 +67,11 @@ const LoginPage = () => {
 
           <div className="relative flex items-center justify-between">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.45em] text-muted-foreground/70">
-                Matter
-              </p>
+              <h4 className="text-sm font-semibold uppercase text-muted-foreground/70">
+                <span style={{ letterSpacing: "2px" }}>Matter</span>
+              </h4>
               <h1 className="mt-3 text-4xl font-bold text-brand-deep">
-                Welcome back
+                {"Welcome\u00a0"}
               </h1>
             </div>
             <KeyStatus active={false} />
