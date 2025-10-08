@@ -77,11 +77,11 @@ const LoginPage = () => {
             <KeyStatus active={false} />
           </div>
 
-          <p className="relative text-lg font-semibold leading-7 text-brand-deep/90">
-            <span className="tracking-[0.35em] uppercase text-brand-deep">
+          <p className="relative flex flex-col text-lg font-semibold leading-7 text-brand-deep/90">
+            <span className="mx-auto tracking-[0.35em] uppercase text-brand-deep">
               Hey guest,
               <br />
-              please sign up first!
+              <span className="mr-[130px] inline-block">please sign up first!</span>
             </span>
           </p>
 
@@ -149,14 +149,8 @@ const LoginPage = () => {
           </form>
 
           <footer className="relative space-y-1 text-center text-xs text-muted-foreground/80">
-            <p className="text-center">
-              Matter · Product Requirement Document — Record what really matters.
-            </p>
-            <div className="mt-2 space-y-1 text-center">
-              <p>©</p>
-              <p>2025</p>
-              <p>Matter Studio. All rights reserved.</p>
-            </div>
+            <p className="text-center">Matter — Record what really matters.</p>
+            <p className="mt-1">© 2025 Matter Studio. All rights reserved.</p>
           </footer>
         </div>
       </div>
