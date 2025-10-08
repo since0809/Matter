@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Check, Circle } from "lucide-react";
+import { Circle } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { TAG_OPTIONS } from "./tag-options";
 import {
@@ -12,7 +12,6 @@ export type PlannerTask = {
   id: number;
   text: string;
   tagId: string;
-  completed: boolean;
 };
 
 type TaskItemProps = {
@@ -25,12 +24,7 @@ export const TaskItem = ({ task, onChange }: TaskItemProps) => {
   const selectedTag = TAG_OPTIONS.find((option) => option.id === task.tagId);
 
   return (
-    <div
-      className={cn(
-        "relative flex items-center gap-3 rounded-2xl border border-border/80 bg-card/80 px-3 py-2",
-        task.completed ? "shadow-soft" : "shadow-none",
-      )}
-    >
+    <div className="relative flex items-center gap-3 rounded-2xl border border-border/80 bg-card/80 px-3 py-2">
       <Popover open={open} onOpenChange={setOpen}>
         <PopoverTrigger asChild>
           <button
@@ -38,9 +32,7 @@ export const TaskItem = ({ task, onChange }: TaskItemProps) => {
             className={cn(
               "flex h-11 w-11 items-center justify-center rounded-2xl border bg-gradient-to-br transition-all",
               selectedTag?.tone ?? "from-muted to-muted",
-              task.completed
-                ? "border-brand-soft/40 opacity-70"
-                : "border-transparent hover:border-brand-soft/70",
+              "border-transparent hover:border-brand-soft/70",
             )}
             aria-label={selectedTag ? `Change tag ${selectedTag.label}` : "Select tag"}
           >
@@ -88,26 +80,10 @@ export const TaskItem = ({ task, onChange }: TaskItemProps) => {
           onChange={(event) => onChange({ text: event.target.value })}
           placeholder="填寫今天的重要事件"
           rows={2}
-          className={cn(
-            "w-full resize-none border-none bg-transparent text-base font-semibold leading-tight text-brand-deep placeholder:text-muted-foreground/70 focus:outline-none focus:ring-0",
-            task.completed ? "line-through opacity-60" : "",
-          )}
+          className="w-full resize-none border-none bg-transparent text-base font-semibold leading-tight text-brand-deep placeholder:text-muted-foreground/70 focus:outline-none focus:ring-0"
         />
       </label>
 
-      <button
-        type="button"
-        onClick={() => onChange({ completed: !task.completed })}
-        className={cn(
-          "flex h-10 w-10 items-center justify-center rounded-full border-2 transition-all",
-          task.completed
-            ? "border-brand-soft bg-brand-soft text-brand-deep"
-            : "border-border text-muted-foreground hover:border-brand-soft hover:text-brand-deep",
-        )}
-        aria-label={task.completed ? "Mark as in progress" : "Mark as done"}
-      >
-        {task.completed ? <Check className="h-5 w-5" strokeWidth={2.2} /> : <Circle className="h-5 w-5" strokeWidth={1.8} />}
-      </button>
     </div>
   );
 };
