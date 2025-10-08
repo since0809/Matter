@@ -9,7 +9,14 @@ import {
 } from "lucide-react";
 import { NavLink, useLocation } from "react-router-dom";
 
-const navItems = [
+type NavItem = {
+  to: string;
+  label: string;
+  icon: LucideIcon;
+  end?: boolean;
+};
+
+const navItems: NavItem[] = [
   {
     to: "/",
     label: "List",
@@ -36,7 +43,7 @@ const navItems = [
     label: "Profile",
     icon: UserRound,
   },
-] as const;
+];
 
 export const BottomNav = () => {
   const location = useLocation();
