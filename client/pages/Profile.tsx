@@ -58,7 +58,7 @@ const ProfilePage = () => {
             <h3 className="text-lg font-semibold text-brand-deep">Collect Keys</h3>
           </div>
           <p className="text-sm text-muted-foreground/80">
-            完成每日任務���解鎖鑰匙。累積鑰匙兌換限量徽章與高光時刻展示牆。
+            完成每日任務可解鎖鑰匙。累積鑰匙兌換限量徽章與高光時刻展示牆。
           </p>
           <Button className="mt-auto rounded-2xl bg-brand text-sm font-semibold tracking-[0.2em] text-white shadow-brand">
             即將推出
@@ -66,7 +66,7 @@ const ProfilePage = () => {
         </div>
         <div className="flex flex-col gap-3 rounded-[32px] border border-border/70 bg-white/95 p-5 shadow-soft">
           <div className="flex items-center gap-3">
-            <Sparkle className="h-5 w-5 text-brand-deep" strokeWidth={2.1} />
+            <Sparkles className="h-5 w-5 text-brand-deep" strokeWidth={2.1} />
             <h3 className="text-lg font-semibold text-brand-deep">Highlights</h3>
           </div>
           <p className="text-sm text-muted-foreground/80">
@@ -116,7 +116,7 @@ const ProfilePage = () => {
             variant="outline"
             className="justify-start gap-3 rounded-2xl border border-brand-soft/80 bg-brand-soft/30 text-brand-deep hover:bg-brand-soft"
           >
-            <Sparkle className="h-5 w-5" strokeWidth={2.1} />
+            <Sparkles className="h-5 w-5" strokeWidth={2.1} />
             關於 Matter
           </Button>
           <Button
