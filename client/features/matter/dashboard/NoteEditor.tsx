@@ -34,7 +34,7 @@ export const NoteEditor = ({
   };
 
   return (
-    <section className="mt-6 rounded-3xl border border-border/70 bg-brand-primary-soft/40 p-4">
+    <section className="mt-6 rounded-3xl border border-border/70 bg-brand-soft/40 p-4">
       <header className="flex items-center justify-between">
         <h2 className="text-lg font-semibold text-brand-deep">Note</h2>
         <button
