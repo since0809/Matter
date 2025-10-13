@@ -78,10 +78,10 @@ const LoginPage = () => {
           </div>
 
           <p className="relative flex flex-col text-lg font-semibold leading-7 text-brand-deep/90">
-            <span className="mx-auto tracking-[0.35em] uppercase text-brand-deep">
+            <span className="mx-auto flex flex-col items-center tracking-[0.35em] uppercase text-brand-deep">
               Hey guest,
               <br />
-              <span className="mr-[130px] inline-block">please sign up first!</span>
+              <div className="mr-[130px]">please sign up first!</div>
             </span>
           </p>
 
@@ -150,7 +150,6 @@ const LoginPage = () => {
 
           <footer className="relative space-y-1 text-center text-xs text-muted-foreground/80">
             <p className="text-center">Matter — Record what really matters.</p>
-            <p className="mt-1">© 2025 Matter Studio. All rights reserved.</p>
           </footer>
         </div>
       </div>
