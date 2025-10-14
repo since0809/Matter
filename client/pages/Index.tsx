@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState } from "react";
 import { addDays, format, subDays } from "date-fns";
 import { ChevronLeft, ChevronRight, Plus } from "lucide-react";
 
-import { useAuth } from "@/context/AuthContext";
 import { NoteEditor, NotePhoto } from "@/features/matter/dashboard/NoteEditor";
 import { PlannerTask, TaskItem } from "@/features/matter/dashboard/TaskItem";
 import { TagSelector } from "@/features/matter/dashboard/TagSelector";
@@ -34,7 +33,6 @@ const makeId = () =>
     : `id-${Math.random().toString(36).slice(2, 10)}`;
 
 const Index = () => {
-  const { user } = useAuth();
   const [tasks, setTasks] = useState<PlannerTask[]>(fallbackTasks);
   const [note, setNote] = useState(
     "記錄讓你有所收穫的一天，或貼上一張激勵自己的照片。",
@@ -141,7 +139,7 @@ const Index = () => {
               <ChevronLeft className="h-5 w-5" strokeWidth={2.1} />
             </button>
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground/80">
+              <p className="text-xs font-semibold uppercase tracking-[2px] text-muted-foreground/80">
                 Today
               </p>
               <div className="flex items-baseline gap-3">
@@ -150,7 +148,7 @@ const Index = () => {
                   <span className="text-lg font-semibold tracking-[0.3em]">/</span>
                   <span className="text-4xl font-bold tracking-[0.2em]">{dayNumber}</span>
                 </div>
-                <span className="text-sm font-semibold uppercase tracking-[0.35em] text-muted-foreground/80">
+                <span className="text-sm font-semibold uppercase text-muted-foreground/80">
                   {weekday}
                 </span>
               </div>
@@ -168,9 +166,6 @@ const Index = () => {
 
         <div className="mt-6 space-y-4">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-muted-foreground/70">
-              Focus label · {activeTagLabel}
-            </p>
             <div className="mt-3">
               <TagSelector selected={activeTag} onSelect={handleTagSelect} />
             </div>
@@ -211,9 +206,6 @@ const Index = () => {
         </p>
         <p className="mt-2">
           需要更多靈感嗎？探索 Inspire 區或替任務加上貼近生活的分類標籤。
-        </p>
-        <p className="mt-2 font-semibold text-brand-deep/70">
-          Hey {user?.name ?? "Guest"}, keep collecting your highlights.
         </p>
       </section>
     </div>
