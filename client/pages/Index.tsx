@@ -165,10 +165,8 @@ const Index = () => {
         </header>
 
         <div className="mt-6 space-y-4">
-          <div>
-            <div className="mt-3">
-              <TagSelector selected={activeTag} onSelect={handleTagSelect} />
-            </div>
+          <div className="mt-3">
+            <TagSelector selected={activeTag} onSelect={handleTagSelect} />
           </div>
 
           <div className="space-y-3">
