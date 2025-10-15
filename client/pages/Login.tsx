@@ -79,7 +79,7 @@ const LoginPage = () => {
 
           <p className="relative flex flex-col text-lg font-semibold leading-7 text-brand-deep/90">
             <span className="mx-auto flex flex-col items-center tracking-[0.35em] uppercase text-brand-deep">
-              Hey guest,
+              <div className="mr-auto">Hey guest,</div>
               <br />
               <div className="mr-[130px]">please sign up first!</div>
             </span>
